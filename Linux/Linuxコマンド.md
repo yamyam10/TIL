@@ -123,3 +123,18 @@ tmp
 パスの指定など、少し操作が面倒ですがこれでファイルのコピーが出来ます！
 
 ディレクトリをコピーする際には-r オプションを指定して再帰的にコピーする必要があります。
+
+## `systemctl` サービスの開始・停止・再起動・再読み込み
+
+| 操作                                 | コマンド                                 |
+| :----------------------------------- | :--------------------------------------- |
+| ユニット（サービス）起動             | systemctl start ${Unit}                  |
+| ユニット（サービス）停止             | systemctl stop ${Unit}                   |
+| ユニット（サービス）再起動           | systemctl restart ${Unit}                |
+| ユニット（サービス）リロード         | systemctl reload ${Unit}                 |
+| ユニット（サービス）ステータス表示   | systemctl status ${Unit}                 |
+| ユニット（サービス）自動起動有効     | systemctl enable ${Unit}                 |
+| ユニット（サービス）自動起動無効     | systemctl disable ${Unit}                |
+| ユニット（サービス）自動起動設定確認 | systemctl is-enabled ${Unit}             |
+| ユニット（サービス）一覧             | systemctl list-unit-files --type=service |
+| 設定ファイルの再読込                 | systemctl daemon-reload                  |
