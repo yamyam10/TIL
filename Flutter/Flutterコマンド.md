@@ -43,47 +43,6 @@ Downgrade flutter to version 1.22.0-12.0.pre
 ? [y|n]: y
 ```
 
-### $ flutter version
-
-非推奨のコマンドで将来削除される予定とのことですが、任意のバージョンを指定してダウングレード出来ます。ただし、これを使うと通常のチャンネル（master, dev など)とは異なり、git コマンドの特定のバージョンを checkout するイメージになるので、元の状態に戻るには`$ flutter channel stable`などのコマンドを利用する必要があります。
-
-```shell:バージョン一覧を確認
-$ flutter version
-[!] The "version" command is deprecated and will be removed in a future version of Flutter. See
-https://flutter.dev/docs/development/tools/sdk/releases for previous releases of Flutter.
-
-1.25.0-8.1.pre
-1.26.0-1.0.pre
-1.22.5
-1.25.0-8.0.pre
-1.25.0-4.0.pre
-1.24.0-10.2.pre
-1.24.0-10.1.pre
-1.22.4
-1.24.0-7.0.pre
-1.22.3
-〜（略）
-```
-
-```shell:特定のバージョンに変更
-$ flutter version 1.22.4
-[!] The "version" command is deprecated and will be removed in a future version of Flutter. See
-https://flutter.dev/docs/development/tools/sdk/releases for previous releases of Flutter.
-
-╔══════════════════════════════════════════════════════════════════════════════╗
-║ Warning: "flutter version" will leave the SDK in a detached HEAD state.      ║
-║ If you are using the command to return to a previously installed SDK version ║
-║ consider using the "flutter downgrade" command instead.                      ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-
-
-Are you sure you want to proceed? [y|n]: y
-
-Switching Flutter to version 1.22.4
-Downloading engine...
-〜（略）
-```
-
 ### $ flutter channel
 
 現在利用している Flutter SDK のチャンネルを確認します。
@@ -215,56 +174,6 @@ pubspec.yaml を更新したら実行するやつです。プラグインのラ�
 
 ```shell:
 $ flutter build apk --target-platform=android-arm64
-```
-
-#### --analyze-size オプション
-
-`--analyze-size`オプションを付けることで、ビルド成果物のサイズ情報を確認することが可能です。
-
-```
-$ flutter build macos --analyze-size
-Building macOS application...
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  sample.app                                                               35 MB
-  sample.app/
-    Contents/
-      _CodeSignature                                                        9 KB
-      MacOS                                                                66 KB
-      Resources                                                           246 KB
-      Frameworks                                                           34 MB
-      Dart AOT symbols accounted decompressed size                          3 MB
-        package:flutter                                                     2 MB
-        dart:core                                                         306 KB
-        dart:typed_data                                                   221 KB
-        dart:ui                                                           191 KB
-        dart:async                                                        115 KB
-        dart:collection                                                   110 KB
-        dart:convert                                                       58 KB
-        dart:isolate                                                       40 KB
-        dart:io                                                            38 KB
-        package:vector_math                                                33 KB
-        dart:developer                                                     10 KB
-        package:typed_data/
-          src/
-            typed_buffer.dart                                               7 KB
-        package:collection/
-          src/
-            priority_queue.dart                                             5 KB
-        dart:math                                                           4 KB
-        dart:ffi                                                            4 KB
-        package:sample/
-          main.dart                                                         3 KB
-        dart:vmservice_io                                                   2 KB
-        dart:mirrors                                                       668 B
-        dart:nativewrappers                                                382 B
-        Never                                                               63 B
-      Info.plist                                                            2 KB
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-A summary of your macOS bundle analysis can be found at: /Users/kurun/.flutter-devtools/macos-code-size-analysis_01.json
-
-To analyze your app size in Dart DevTools, run the following command:
-flutter pub global activate devtools; flutter pub global run devtools --appSizeBase=macos-code-size-analysis_01.json
 ```
 
 # アプリ実行
