@@ -20,8 +20,8 @@ git commit -m "initial commit"
 ターミナルでローカルリポジトリに移動して以下のコマンド
 
 ```
-cd [ローカルリポジトリのパス]
-git clone [リモートリポジトリパス] (例： https://github.com/jquery/jquery.git)
+cd <ローカルリポジトリのパス>
+git clone <リモートリポジトリパス> (例： https://github.com/jquery/jquery.git)
 ```
 
 ---
@@ -35,7 +35,7 @@ git clone [リモートリポジトリパス] (例： https://github.com/jquery/
 - ファイルを更新
 
 ```
-git add [ファイル名] //追加
+git add <ファイル名> //追加
 git commit -a -m "任意のコメント"  //コミット (-aオプションは変更を自動検出してくれる)
 git push origin main  //mainを更新
 ```
@@ -107,10 +107,10 @@ git rebase --continue
 ブランチは変更履歴を記録できる。
 
 ```
-git branch [branch_name]  //ブランチの作成
-git checkout [branch_name]  //ブランチの移動
-git branch -d [branch_name]  //ブランチの削除
-git branch -m [branch_name]  //現在のブランチ名の変更
+git branch <branch_name>  //ブランチの作成
+git checkout <branch_name>  //ブランチの移動
+git branch -d <branch_name>  //ブランチの削除
+git branch -m <branch_name>  //現在のブランチ名の変更
 git branch // ローカルブランチの一覧
 git branch -a //リモートとローカルのブランチの一覧
 git branch -r //リモートブランチの一覧
@@ -121,15 +121,15 @@ Git ブランチ操作 (git switch を利用した最新版)
 ブランチは、プロジェクトの変更履歴を記録できる非常に便利な機能です。Git 2.23 以降では、ブランチの操作に特化した**git switch**コマンドが導入され、より直感的に操作できるようになりました。
 
 ```
-git switch -c [branch_name]  // ブランチの作成と同時にそのブランチへ移動
-git switch [branch_name]  // 既存のブランチへ移動
-git branch -d [branch_name]  // ブランチの削除 (マージ済みのみ)
-git branch -D [branch_name]  // ブランチの強制削除 (未マージでも可能)
-git branch -m [new_branch_name]  // 現在のブランチ名を変更
+git switch -c <branch_name>  // ブランチの作成と同時にそのブランチへ移動
+git switch <branch_name>  // 既存のブランチへ移動
+git branch -d <branch_name>  // ブランチの削除 (マージ済みのみ)
+git branch -D <branch_name>  // ブランチの強制削除 (未マージでも可能)
+git branch -m <new_branch_name>  // 現在のブランチ名を変更
 git branch  // ローカルブランチの一覧
 git branch -a  // リモートとローカルのブランチの一覧
 git branch -r  // リモートブランチの一覧
-git switch --track origin/[branch_name]  // リモートブランチを追跡するローカルブランチを作成し、チェックアウト
+git switch --track origin/<branch_name>  // リモートブランチを追跡するローカルブランチを作成し、チェックアウト
 ```
 
 ---
@@ -137,8 +137,8 @@ git switch --track origin/[branch_name]  // リモートブランチを追跡す
 ### ファイルの名前変更
 
 ```
-git mv [変更前のファイル名] [変更後のファイル名]
-git commit -a -m "rename"
+git mv <変更前のファイル名> <変更後のファイル名>
+git commit -a -m "[rename] ファイルの名前変更"
 git push origin main
 ```
 
@@ -149,8 +149,13 @@ git push origin main
 特定のコミットに戻して main に反映したい場合は以下のコマンドで。
 
 ```
-git checkout [commit_id] [file_name]  //特定ファイルの指定
-git commit -a -m "return" //戻した内容をコミット
+git checkout <commit_id> <file_name>  //特定ファイルの指定
+git checkout abcd1234 test.txt
+
+git checkout <commit_id> <directory_path>  //特定ディレクトリの指定
+git checkout abcd1234 dir/
+
+git commit -m "[revert] changes to <file> in <commit>" //戻した内容をコミット
 git push origin main //変更をプッシュ
 ```
 
@@ -170,9 +175,9 @@ git stash clear //退避の消去
 ### ファイルの削除
 
 ```
-git rm [name]  //特定のファイルorディレクトリの削除
+git rm <name>  //特定のファイルorディレクトリの削除
 git rm *  //全ファイルorディレクトリ
-git commit -a -m "remove"  //削除をコミット
+git commit -a -m "[remove] <file>"  //削除をコミット
 git push origin main  //削除を反映
 ```
 
